@@ -7,7 +7,7 @@ The code here implements the work proposed by Ozdemir et. al. on class-increment
 
 Currently, the workflow is being refactored to benefit from TF 1.12 (mainly migration to tensorflow.keras). Please report any issues/bugs! 
 
-Code will available soon.
+Code will be available by 17.05.2019!
 
 
 ## Prerequisites
