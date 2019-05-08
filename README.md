@@ -1,12 +1,9 @@
 # LwfSeg-AeiSeg
-Extending Pretrained Segmentation Networks with Additional Anatomical Structures
+#### Extending Pretrained Segmentation Networks with Additional Anatomical Structures
 
-Class-incremental learning for segmentation in a lifelong learning scenario. 
-
-The code here implements the work proposed by Ozdemir et. al. on class-incremental learning for segmentation. 
-
-Currently, the workflow is being refactored to benefit from TF 1.12 (mainly migration to tensorflow.keras). Please report any issues/bugs! 
-
+Class-incremental learning for segmentation in a lifelong learning scenario.  
+The code here implements the work proposed by Ozdemir et. al. on class-incremental learning for segmentation ([pre-print](https://arxiv.org/abs/1811.04634), [journal](https://doi.org/10.1007/s11548-019-01984-4)).  
+Currently, the workflow is being refactored to benefit from TF 1.12 (mainly migration to tensorflow.keras). Please report any issues/bugs.  
 Code will be available by 17.05.2019!
 
 
