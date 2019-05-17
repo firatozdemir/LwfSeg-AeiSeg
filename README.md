@@ -4,7 +4,6 @@
 Class-incremental learning for segmentation in a lifelong learning scenario.  
 The code here implements the work proposed by Ozdemir et. al. on class-incremental learning for segmentation ([pre-print](https://arxiv.org/abs/1811.04634), [journal](https://doi.org/10.1007/s11548-019-01984-4)).  
 Currently, the workflow is being refactored to benefit from TF 1.12 (mainly migration to tensorflow.keras). Please report any issues/bugs.  
-Code will be available by 17.05.2019!
 
 
 ## Prerequisites
@@ -14,7 +13,7 @@ Code will be available by 17.05.2019!
 
 ## Data I/O
 
-- Script expects data input in forms of HDF5 files. In order to reproduce experiments with the least amount of overhead, one needs to download SKI10 dataset and generate HDF5 container with resized volumes for training. More instructions on compatible dataset generation will follow!
+- Script expects data input in forms of HDF5 files. In order to reproduce experiments with the least amount of overhead, one needs to download SKI10 dataset and generate HDF5 container with resized volumes for training. We have also applied bias field correction using N4ITK.
 
 ## Experiment Configurations
 
