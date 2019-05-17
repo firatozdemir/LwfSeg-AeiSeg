@@ -3,7 +3,7 @@
 
 Class-incremental learning for segmentation in a lifelong learning scenario.  
 The code here implements the work proposed by Ozdemir et. al. on class-incremental learning for segmentation ([pre-print](https://arxiv.org/abs/1811.04634), [journal](https://doi.org/10.1007/s11548-019-01984-4)).  
-Currently, the workflow is being refactored to benefit from TF 1.12 (mainly migration to tensorflow.keras). Please report any issues/bugs.  
+Currently, the workflow is being refactored to benefit from TF 1.12 (mainly migration to tensorflow.keras). Please feel free to report any issues/bugs.  
 
 
 ## Prerequisites
@@ -17,7 +17,38 @@ Currently, the workflow is being refactored to benefit from TF 1.12 (mainly migr
 
 ## Experiment Configurations
 
-More to come!
+Provided script allows for running: CurSeg, IncSeg, finetune, ReSeg, LwfSeg, AeiSeg. 
+All relevant functions for CoRiSeg are also provided, however, not tested.
+
+inc_train.py is the main script to do all training. It accepts arguments to set the method, holdout set, and incremental ratio (IR).  
+A few key points:  
+IR100: --exp_scenario 1  
+IR17: --exp_scenario 3  
+IR04: --exp_scenario 4  
+IR01: --exp_scenario 2  
+
+HO1: --index_shuffle_seed_ID 1  
+HO2: --index_shuffle_seed_ID 2  
+HO3: --index_shuffle_seed_ID 3  
+HO4: --index_shuffle_seed_ID 4  
+HO5: --index_shuffle_seed_ID 5  
+
+A few examples to run the proposed method:
+```bash
+# IR17, HO1: 
+# CurSeg:
+python inc_train.py --continue_run --index_shuffle_seed_ID 1 --exp_scenario 3 -l unet2D_BN_wxent_SKI10_resize224_1femur_2tibia_HO1_IR17_IJCARS -c unet2D_SKI10_resize_1femur_2tibia_IJCARS2019 -m incremental0 -v 
+# IncSeg:
+python inc_train.py --continue_run --index_shuffle_seed_ID 1 --exp_scenario 3 -l unet2D_BN_wxent_SKI10_resize224_1femur_2tibia_HO1_IR17_IJCARS/trainOnIncrementalData -c unet2D_SKI10_resize_1femur_2tibia_IJCARS2019 -m incremental0 --init_train_on_incremental -v 
+# finetune:
+python inc_train.py --continue_run --index_shuffle_seed_ID 1 --exp_scenario 3 -l unet2D_BN_wxent_SKI10_resize224_1femur_2tibia_HO1_IR17_IJCARS -c unet2D_SKI10_resize_1femur_2tibia_IJCARS2019 -m incremental1 -e finetune -v 
+# ReSeg:
+python inc_train.py --continue_run --index_shuffle_seed_ID 1 --exp_scenario 3 -l unet2D_BN_wxent_SKI10_resize224_1femur_2tibia_HO1_IR17_IJCARS -c unet2D_SKI10_resize_1femur_2tibia_IJCARS2019 -m incremental1 -e reseg --K_uncertain 1000 --k_rep 100 --compute_exemplar_samples -v 
+# LwfSeg:
+python inc_train.py --continue_run --index_shuffle_seed_ID 1 --exp_scenario 3 -l unet2D_BN_wxent_SKI10_resize224_1femur_2tibia_HO1_IR17_IJCARS -c unet2D_SKI10_resize_1femur_2tibia_IJCARS2019 -m incremental1 -e lwfseg -v 
+# AeiSeg:
+python inc_train.py --continue_run --index_shuffle_seed_ID 1 --exp_scenario 3 -l unet2D_BN_wxent_SKI10_resize224_1femur_2tibia_HO1_IR17_IJCARS -c unet2D_SKI10_resize_1femur_2tibia_IJCARS2019 -m incremental1 -e aeiseg --K_uncertain 1000 --k_rep 100 --compute_exemplar_samples -v 
+```
 
 ## Citation
 
