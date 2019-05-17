@@ -33,7 +33,7 @@ HO3: --index_shuffle_seed_ID 3
 HO4: --index_shuffle_seed_ID 4  
 HO5: --index_shuffle_seed_ID 5  
 
-A few examples to run the proposed method:
+A few examples to run the proposed methods:
 ```bash
 # IR17, HO1: 
 # CurSeg:
